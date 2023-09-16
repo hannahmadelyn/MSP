@@ -1,0 +1,33 @@
+CREATE TABLE Item (
+	ItemID int,
+	Name varchar(20),
+	Description varchar(50),
+	Brand varchar(20),
+	Category varchar(20),
+	Price decimal,
+	Quantity int,
+	DateAdded date,
+	DateExpiry date,
+	Weight int,
+	Primary Key (ItemID)
+);
+
+INSERT INTO Item (ItemID, Name, Description, Brand, Category, Price, Quantity, DateAdded, DateExpiry, Weight)
+VALUES (1, 'Organic Royal Gala Apples', 'Fresh organic Royal Gala Apples', 'Nature is Best', 'Fruits', 2.99, 50, '2023-09-15', '2023-09-30', 150);
+
+INSERT INTO Item (ItemID, Name, Description, Brand, Category, Price, Quantity, DateAdded, DateExpiry, Weight)
+VALUES (2, 'Spaghetti', 'Pack of spaghetti noodles', 'Barilla', 'Pasta', 3.50, 50, '2023-09-15', '2024-09-15', 500);
+
+INSERT INTO Item (ItemID, Name, Description, Brand, Category, Price, Quantity, DateAdded, DateExpiry, Weight)
+VALUES (3, 'Canned Beans', 'Assorted beans mix', 'Macro', 'Canned Goods', 1.10, 100, '2023-09-15', '2025-12-31', 420);
+
+INSERT INTO Item (ItemID, Name, Description, Brand, Category, Price, Quantity, DateAdded, DateExpiry, Weight)
+VALUES (4, 'Shapes Pizza Crackers', 'Delicious pizza-flavored crackers', 'Arnott''s', 'Snacks', 5.50, 75, '2023-09-15', '2025-09-15', 190);
+
+
+INSERT INTO Item (ItemID, Name, Description, Brand, Category, Price, Quantity, DateAdded, DateExpiry, Weight)
+VALUES (5, 'Australian Potato Wedges', 'Homegrown delicious potato wedges', 'Woolworths', 'Frozen Foods', 4.50, 30, '2023-09-15', '2026-09-15', 705);
+
+
+
+
