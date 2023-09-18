@@ -1,0 +1,17 @@
+ CREATE DATABASE GOTO;
+ USE GOTO;
+ 
+CREATE TABLE Members(
+member_id int(10) NOT NULL,
+fname varchar(20),
+lname varchar(20),
+join_date date,
+phone int (10),
+address varchar (50),
+CONSTRAINT PRIMARY KEY (member_id)
+);
+
+
+
+
+
