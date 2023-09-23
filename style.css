@@ -1,0 +1,163 @@
+i.fas {
+  color: #525252;
+  font-size: 20px;
+}
+a{text-decoration: none;}
+header {
+    display: flex;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #fff; 
+    color: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
+    justify-content: center; /* Center the search bar horizontally */
+    align-items: center;     /* Center the search bar vertically */
+
+}
+header form {
+  width: 70%;
+    display: flex; /* This will make child elements (input and icon) align horizontally */
+    border: 1px solid #ccc; /* Add a border to the entire form */
+    overflow: hidden; /* Ensure that inner elements don't spill out */
+}
+header form input[type="text"] {
+    flex: 1; /* Take available width */
+    border: none; /* Remove default input border */
+    padding: 8px; /* Some space around the text */
+    outline: none; /* Remove default focus outline */
+}
+header form i.fas.fa-search {
+    padding: 8px; /* Same padding as the input for vertical alignment and clickable area */
+    cursor: pointer; /* Makes it clear this is clickable */
+    background-color: #f4f4f4; /* Optional: give it a different background color for contrast */
+}
+.search-btn {
+    background: none; /* Remove default background */
+    border: none; /* Remove default border */
+    cursor: pointer; /* Show clickable hand icon on hover */
+    outline: none; /* Remove focus highlight */
+    padding: 0; /* Remove default padding */
+}
+
+body {
+  background-color: #F5F5F5;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    padding-top:50px;
+}
+.container {
+    display: flex;
+}
+
+aside {
+    width: 15%; /* adjust as necessary */
+    height: 95vh; /* 100 takes the full viewport height */
+    background-color: #18202C; /* just a color example; adjust as desired */
+    color: #fff; /* text color for better contrast against the dark background */
+    padding: 10px 20px;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1); /* optional shadow for some depth */
+}
+
+aside nav ul {
+    list-style-type: none; /* removes bullet points */
+    padding: 0;
+}
+
+aside nav ul li {
+    margin: 10px 0;
+}
+aside nav ul li a{
+  color: #fff;
+}
+aside nav ul li a:hover, a:active{
+  color: #3196E7;
+font-weight: bold;
+}
+main {
+    flex: 1;  /* allows the main content to take the remaining space */
+    padding:0 20px;  /* optional for spacing */
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;  /* optional: space them equally apart */
+    align-items: stretch;               /* align items at the top */
+}
+.card article {
+    flex: 1; 
+    margin: 0 10px;  
+    padding: 0 20px;
+    background-color: #fff; 
+    text-align: center;
+}
+
+.card article h2 {
+
+    font-size: .8em;
+    text-transform: uppercase;
+}
+/* Targets the h2 of the first article */
+.card article:nth-child(1) h2 {
+    color: #FF8B96;
+}
+
+/* Targets the h2 of the second article */
+.card article:nth-child(2) h2 {
+    color: #3196E7;
+}
+
+/* Targets the h2 of the third article */
+.card article:nth-child(3) h2 {
+    color: #31D1BA;
+}
+
+.card article p {
+   margin-top: 0;
+    font-size: 2em;
+}
+
+table{
+  margin-top:30px;
+  width:100%;
+   border-collapse: collapse; /* Ensures borders are merged */
+    border: none;
+}
+thead{
+  font-weight: bold;
+  background-color:#ECF2F7;
+  text-transform: uppercase;
+}
+thead td{
+  padding:10px 20px;
+  text-align: left;
+}
+tbody td{
+  background-color: #fff;
+  padding: 10px 20px;
+}
+/* Add bottom borders to the cells instead of the rows to prevent double borders */
+table td, table th {
+    border-bottom: 1px solid #ECF2F7;
+    padding: 8px; /* Optional: for some spacing within cells */
+}
+
+/* Remove border from the last row's cells to avoid a border at the bottom of the table */
+table tr:last-child td, table tr:last-child th {
+    border-bottom: none;
+}
+
+tbody td a{
+  color: #18A0FB;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+footer {
+    text-align: center;
+}
+footer p {
+    font-size: .7em;
+}
