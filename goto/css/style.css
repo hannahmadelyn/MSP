@@ -368,7 +368,66 @@ aside nav ul li a:hover {
     outline: none;
     box-shadow: 0 0 5px rgba(0,123,255,0.5);
 }
+/*---------------------------------item------------------------*/
+/*filter button*/
+.btn_group {
+    display: flex;
+    padding-top:30px;
+    justify-content: space-between; /* This spaces the two groups apart */
+    align-items: center;
+}
 
+.btn_action {
+    background-color: #fff;
+    color: #18202C;
+    border: 1px solid #18202C;
+    padding: 10px 40px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.btn_action:hover {
+    background-color: #18202C;
+    color: #fff;
+}
+/* Style for submenus */
+.submenu {
+    display: none;                  /* Initially hidden */
+    position: absolute;             /* Positioned relative to the parent div */
+    top: 100%;                      /* Right below the button */
+    left: 0;                        /* Align to the left edge of the button */
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+}
+
+.submenu button {
+    display: inline-block;          /* Makes buttons side by side */
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: transparent;  
+    border: none;                   /* Assuming no borders for these buttons */
+}
+
+.submenu button:hover {
+    background-color: #e0e0e0;     /* Slight color change on hover for feedback */
+}
+
+/* Parent group for buttons with submenus should be relative */
+.btn_group > div {
+    position: relative;
+}
+.btn_link{
+  background-color: #fff;
+    color: #3196E7;
+    border: 1px solid #3196E7;
+    padding: 10px 40px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+.btn_link:hover{
+    background-color: #3196E7;
+    color: #fff;
+}
 /* Add a hover effect to the submit button in the sign up form */
 input[type="submit"]:hover {
     background-color: #3196E7;
