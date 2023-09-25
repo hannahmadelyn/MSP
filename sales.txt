@@ -1,0 +1,68 @@
+CREATE TABLE Sales (
+	transaction_id int
+	member_id int
+	order_date date
+);
+
+INSERT INTO Sales (transaction_id, member_id, order_date)
+VALUES (100, 5018, 29/09/2023);
+
+INSERT INTO Sales (transaction_id, member_id, order_date)
+VALUES (101, 6217, 3/10/2023);
+
+INSERT INTO Sales (transaction_id, member_id, order_date)
+VALUES (102, 8534, 5/10/2023);
+
+INSERT INTO Sales (transaction_id, member_id, order_date)
+VALUES (103, 7390, 7/10/2023);
+
+INSERT INTO Sales (transaction_id, member_id, order_date)
+VALUES (104, 6382, 9/10/2023);
+
+INSERT INTO Sales (transaction_id, member_id, order_date)
+VALUES (105, 7546, 12/10/2023);
+
+INSERT INTO Sales (transaction_id, member_id, order_date)
+VALUES (106, 9387, 13/10/2023);
+
+INSERT INTO Sales (transaction_id, member_id, order_date)
+VALUES (107, 1329, 15/10/2023);
+
+INSERT INTO Sales (transaction_id, member_id, order_date)
+VALUES (108, 2784, 15/10/2023);
+
+INSERT INTO Sales (transaction_id, member_id, order_date)
+VALUES (109, 8492, 16/10/2023);
+
+INSERT INTO Sales (transaction_id, member_id, order_date)
+VALUES (110, 9274, 17/10/2023);
+
+INSERT INTO Sales (transaction_id, member_id, order_date)
+VALUES (111, 8537, 19/10/2023);
+
+INSERT INTO Sales (transaction_id, member_id, order_date)
+VALUES (112, 5103, 22/10/2023);
+
+INSERT INTO Sales (transaction_id, member_id, order_date)
+VALUES (113, 3732, 22/10/2023);
+
+INSERT INTO Sales (transaction_id, member_id, order_date)
+VALUES (114, 8834, 23/10/2023);
+
+INSERT INTO Sales (transaction_id, member_id, order_date)
+VALUES (115, 9893, 24/10/2023);
+
+INSERT INTO Sales (transaction_id, member_id, order_date)
+VALUES (116, 6034, 24/10/2023);
+
+INSERT INTO Sales (transaction_id, member_id, order_date)
+VALUES (117, 7744, 24/10/2023);
+
+INSERT INTO Sales (transaction_id, member_id, order_date)
+VALUES (118, 6030, 25/10/2023);
+
+INSERT INTO Sales (transaction_id, member_id, order_date)
+VALUES (119, 4500, 26/10/2023);
+
+INSERT INTO Sales (transaction_id, member_id, order_date)
+VALUES (120, 9569, 27/10/2023);
