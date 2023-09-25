@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;700&family=Roboto:wght@300;400;500;900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="js/script.js"></script>
 	<title>GOTO Dashboard</title>
 </head>
 <body>
@@ -33,9 +34,6 @@
 </aside>
 <main>
 	<h1>Item Dashboard</h1>
-	<a href="itemAdd.html">
-	<button class="add-items-btn">Add Items</button>
-	</a>
 	<section class="card">
 		<article>
 			<h2>new Item</h2>
@@ -51,18 +49,41 @@
 		</article>
 	</section>
 	<section>
+	<div class="btn_group">
+    <div>
+    	<a href="itemAdd.html" class="btn_link">Add</a>
+    </div>
+    <div>
+        <button class="btn_action" onclick="toggleSubmenu('categoryMenu')">Category</button>
+        <div class="submenu" id="categoryMenu">
+            <!-- Categories from the database go here -->
+            <button>Category 1</button>
+            <button>Category 2</button>
+            <!-- ... -->
+        </div>
+
+        <button class="btn_action" onclick="toggleSubmenu('sortMenu')">Sort By</button>
+        <div class="submenu" id="sortMenu">
+            <button>A-Z</button>
+            <button>Z-A</button>
+            <button>High to Low</button>
+            <button>Low to High</button>
+        </div>
+    </div>
+</div>
+
 		<table>
 			<thead>
 				<tr>
 					<td><input type="checkbox" name="option" value="optionAll">
 </td>
-					<td>Name</td>
-					<td>Description</td>
-					<td>Brand</td>
-					<td>Category</td>
-					<td>Prices</td>
-					<td>Quantity</td>
-					<td>Date Expiry</td>
+					<td>name</td>
+					<td>description</td>
+					<td>brand</td>
+					<td>category</td>
+					<td>prices</td>
+					<td>quantity</td>
+					<td>date Expiry</td>
 					<td colspan="3">Weight</td>
 				</tr>
 			</thead>
