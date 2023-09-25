@@ -15,3 +15,17 @@ CONSTRAINT PRIMARY KEY (member_id)
 
 
 
+INSERT INTO Members (member_id, fname, lname, join_date, phone, address)
+VALUES (0001, 'James', 'Smith', '2023-09-15', 0412123123, '2 Smith St Glenferrie');
+
+INSERT INTO Members (member_id, fname, lname, join_date, phone, address)
+VALUES (0002, 'Jane', 'Smith', '2023-09-16', 0412786433, '10 Smith St Glenferrie');
+
+INSERT INTO Members (member_id, fname, lname, join_date, phone, address)
+VALUES (0003, 'Amy', 'Green', '2023-09-15', 0412123783, '66 Smith St Hawthorn');
+
+INSERT INTO Members (member_id, fname, lname, join_date, phone, address)
+VALUES (0004, 'Calvin', 'Truong', '2023-08-12', 0412123178, '55 Park Ave Richmond');
+
+INSERT INTO Members (member_id, fname, lname, join_date, phone, address)
+VALUES (0005, 'Jimmy', 'O'Brian, '2023-10-15', 0412123393, '55A Collins St Melbourne');
