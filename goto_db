@@ -28,4 +28,4 @@ INSERT INTO Members (member_id, fname, lname, join_date, phone, address)
 VALUES (0004, 'Calvin', 'Truong', '2023-08-12', 0412123178, '55 Park Ave Richmond');
 
 INSERT INTO Members (member_id, fname, lname, join_date, phone, address)
-VALUES (0005, 'Jimmy', 'O'Brian, '2023-10-15', 0412123393, '55A Collins St Melbourne');
+VALUES (0005, 'Jimmy', 'OBrian, '2023-10-15', 0412123393, '55A Collins St Melbourne');
