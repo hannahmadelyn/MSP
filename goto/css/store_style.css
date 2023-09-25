@@ -1,0 +1,130 @@
+/* --- Base Styles --- */
+body {
+    background-color: #F5F5F5;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    padding-top: 80px; /* Increased top padding to accommodate the fixed header */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+i {
+    color: #525252;
+    font-size: 20px;
+}
+
+/* Adjusted Header */
+header {
+    display: flex;
+    justify-content: center;  /* Center the content horizontally */
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* Adjusted Header Form */
+header form {
+    display: flex;
+    align-items: center;
+    flex-grow: 2;
+    width: 90%;  /* Make the form cover the entire width */
+    border: 1px solid #ccc;
+    background-color: #f4f4f4;  /* Background color for the entire form */
+    overflow: hidden;  /* Ensures inner elements don't spill out */
+    border-radius: 4px;  /* Optional: Rounded corners for the search box */
+    margin-right: 40px;  /* Center the form horizontally */
+}
+
+
+header input[type="text"] {
+    flex: 1;
+    border: none;
+    padding: 12px 15px; /* Adjusted padding for balanced spacing */
+    font-size: 1em;
+    outline: none;
+    margin: 10px;
+}
+
+header form i.fas.fa-search {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #f4f4f4; /* Added background for contrast */
+}
+
+.user-cart-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin: 20px 10px;  /* Adjusted the right margin to 10px */
+}
+
+
+/* --- Quick Links --- */
+.quick-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Increased gap for spacing */
+    background-color: #f4f4f4;
+    padding: 15px 0; /* Increased padding for balance */
+    margin-top: 20px; /* Space between header and quick links */
+}
+
+.quick-links li {
+    list-style: none;
+}
+
+/* --- Banner Styles --- */
+.banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.banner img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- Product Grid --- */
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px 0; /* Space between banner and product grid */
+}
+
+.product-card {
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.product-card img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    font-weight: bold;
+}
+
+.product-card a {
+    color: #3196E7;
+}

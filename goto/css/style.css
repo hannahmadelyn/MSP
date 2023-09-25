@@ -38,6 +38,9 @@ header form i.fas.fa-search {
     cursor: pointer; /* Makes it clear this is clickable */
     background-color: #f4f4f4; /* Optional: give it a different background color for contrast */
 }
+
+
+
 .search-btn {
     background: none; /* Remove default background */
     border: none; /* Remove default border */
