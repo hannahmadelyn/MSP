@@ -8,7 +8,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;700&family=Roboto:wght@300;400;500;900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script src="js/script.js"></script>
 	<title>GOTO Dashboard</title>
 </head>
 <body>
@@ -25,9 +24,9 @@
 	<nav>
 		<ul>
 			<li>user id</li>
-			<li><a href="">USER</a></li>
-			<li><a href="">SALE</a></li>
-			<li><a href="">ITEM</a></li>
+			<li><a href="index.html">USER</a></li>
+			<li><a href="sale.html">SALE</a></li>
+			<li><a href="item.html">ITEM</a></li>
 			<li><a href="">LOG OUT</a></li>
 		</ul>
 	</nav>
@@ -49,41 +48,18 @@
 		</article>
 	</section>
 	<section>
-	<div class="btn_group">
-    <div>
-    	<a href="itemAdd.html" class="btn_link">Add</a>
-    </div>
-    <div>
-        <button class="btn_action" onclick="toggleSubmenu('categoryMenu')">Category</button>
-        <div class="submenu" id="categoryMenu">
-            <!-- Categories from the database go here -->
-            <button>Category 1</button>
-            <button>Category 2</button>
-            <!-- ... -->
-        </div>
-
-        <button class="btn_action" onclick="toggleSubmenu('sortMenu')">Sort By</button>
-        <div class="submenu" id="sortMenu">
-            <button>A-Z</button>
-            <button>Z-A</button>
-            <button>High to Low</button>
-            <button>Low to High</button>
-        </div>
-    </div>
-</div>
-
 		<table>
 			<thead>
 				<tr>
 					<td><input type="checkbox" name="option" value="optionAll">
 </td>
-					<td>name</td>
-					<td>description</td>
-					<td>brand</td>
-					<td>category</td>
-					<td>prices</td>
-					<td>quantity</td>
-					<td>date Expiry</td>
+					<td>Name</td>
+					<td>Description</td>
+					<td>Brand</td>
+					<td>Category</td>
+					<td>Prices</td>
+					<td>Quantity</td>
+					<td>Date Expiry</td>
 					<td colspan="3">Weight</td>
 				</tr>
 			</thead>
@@ -99,7 +75,7 @@
 					<td>1300</td>
 					<td>12.24.23</td>
 					<td>300g</td>
-					<td><a href="#">Eidt</a></td>
+					<td><a href="#">Edit</a></td>
 					<td><a href="#"><i class="fas fa-times"></i></a></td>
 				</tr>
 			</tbody>
