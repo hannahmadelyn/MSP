@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;700&family=Roboto:wght@300;400;500;900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="js/script.js"></script>
 	<title>GOTO Dashboard</title>
 </head>
 <body>
@@ -48,6 +49,29 @@
 		</article>
 	</section>
 	<section>
+	<div class="btn_group">
+    <div>
+    	<a href="itemAdd.html" class="btn_link">Add</a>
+    </div>
+    <div>
+        <button class="btn_action" onclick="toggleSubmenu('categoryMenu')">Category</button>
+        <div class="submenu" id="categoryMenu">
+            <!-- Categories from the database go here -->
+            <button>Category 1</button>
+            <button>Category 2</button>
+            <!-- ... -->
+        </div>
+
+        <button class="btn_action" onclick="toggleSubmenu('sortMenu')">Sort By</button>
+        <div class="submenu" id="sortMenu">
+            <button>A-Z</button>
+            <button>Z-A</button>
+            <button>High to Low</button>
+            <button>Low to High</button>
+        </div>
+    </div>
+</div>
+
 		<table>
 			<thead>
 				<tr>
