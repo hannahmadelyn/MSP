@@ -128,3 +128,108 @@ header form i.fas.fa-search {
 .product-card a {
     color: #3196E7;
 }
+
+/* --- Account Creation Styles --- */
+.account-form {
+    background-color: #FFF;
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.account-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.account-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.account-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #3196E7;
+    color: #FFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.account-form button:hover {
+    background-color: #277db2;
+}
+
+/* --- Shared Header Styles --- */
+header .logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3196E7;
+    margin-right: 20px;
+}
+
+header .user-cart-icons {
+    display: flex;
+    gap: 15px;
+}
+
+header .user-cart-icons a {
+    color: #525252;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s;
+}
+
+header .user-cart-icons a:hover {
+    color: #3196E7;
+}
+
+/* --- Product Details Page Styles --- */
+.product-details {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.product-details img {
+    max-width: 50%;
+    height: auto;
+    margin-right: 20px;
+}
+
+.product-details h2, .product-details p {
+    margin: 10px 0;
+}
+
+.product-details button {
+    padding: 10px 20px;
+    background-color: #3196E7;
+    color: #FFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-details button:hover {
+    background-color: #277db2;
+}
+
+.product-details img {
+    max-width: 10%;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* centers the image horizontally */
+}

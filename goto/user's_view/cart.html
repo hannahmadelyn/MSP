@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="store_style.css">
+    <title>Shopping cart</title>
+</head>
+
+<body>
+    <header>
+        <form>
+            <input type="text" placeholder="Search for products">
+            <button type="submit" class="search-btn">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+    </header>
+    <div class="container">
+        <aside>
+            <nav>
+                <ul>
+                    <li>User Id</li>
+                    <li><a href="store.html"><i class="fas fa-home"></i> HOME</a></li>
+                    <li><a href="#"><i class="fas fa-shopping-cart"></i> SALE</a></li>
+                    <li><a href="product.html"><i class="fas fa-box"></i> ITEM</a></li>
+                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> LOG OUT</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main>
+            <h1>Shopping Cart</h1>
+            <div class="cartItems"></div>
+            <div class="totalCost">
+                <div>
+                    <p>Total: </p>
+                </div>
+                <div>
+                    <p id="total"></p>
+                </div>
+            </div>
+            <div class="cartOptions">
+                <div id="checkOutButton">
+                    <button type="button" id="checkOut">Check Out</button>
+                </div>
+                <div id="clearCartButton">
+                    <button type="button" id="clearCart">Clear Cart</button>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Include logic to calculate and display the total price -->
+        <script src="USER_addItem.js"></script>
+        <script>
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const cartItemsDiv = document.querySelector('.cartItems');
+            let totalCost = 0;
+
+            // Display each product in the cart
+            cart.forEach(product => {
+                totalCost += product.price * product.quantity;
+                const productDiv = document.createElement('div');
+                productDiv.className = 'cartProduct';
+                productDiv.innerHTML = `
+                    <h3>${product.name}</h3>
+                    <p>Price: $${product.price}</p>
+                    <p>Quantity: ${product.quantity}</p>
+                `;
+                cartItemsDiv.appendChild(productDiv);
+            });
+
+            // Display the total cost
+            document.getElementById("total").innerText = "$" + totalCost.toFixed(2);
+        </script>
+    </div>
+    <footer>
+        <p>GOTO(C)2023</p>
+    </footer>
+</body>
+
+</html>
