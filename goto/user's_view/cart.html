@@ -11,6 +11,7 @@
     <title>Shopping Cart - GOTO Store</title>
 </head>
 
+
 <body>
     <main>
         <h1>Shopping Cart</h1>
@@ -28,33 +29,48 @@
             </div>
         </div>
     </main>
-    <footer>
-        <p>GOTO(C)2023</p>
-    </footer>
 
-    <!-- Include logic to calculate and display the total price -->
-    <script src="../js/USER_addItem.js"></script>
     <script>
         let totalCost = 0;
 
-        // Fetch items from the cart and display them
-        const cartItemsDiv = document.querySelector('.cartItems');
-        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-        cart.forEach(item => {
-            totalCost += item.price * item.quantity;
-            const itemDiv = document.createElement('div');
-            itemDiv.classList.add('cart-item');
-            itemDiv.innerHTML = `
-                <img src="${item.image}" alt="${item.name}">
-                <h3>${item.name}</h3>
-                <p>Price: $${item.price.toFixed(2)}</p>
-                <p>Quantity: ${item.quantity}</p>
-            `;
-            cartItemsDiv.appendChild(itemDiv);
-        });
+        try {
 
-        // Display the total cost
-        document.getElementById("total").innerText = "$" + totalCost.toFixed(2);
+            document.getElementById('clearCart').addEventListener('click', function() {
+                // Clear cart from localStorage
+                localStorage.removeItem('cart');
+                
+                // Update UI
+                document.querySelector('.cartItems').innerHTML = "<p>Your cart is empty. Add items to view them here.</p>";
+                document.getElementById('total').innerText = "$0.00";
+            });
+            
+            const cartItemsDiv = document.querySelector('.cartItems');
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+            // If cart is empty, display a message
+            if (cart.length === 0) {
+                cartItemsDiv.innerHTML = "<p>Your cart is empty. Add items to view them here.</p>";
+            }
+
+            cart.forEach(item => {
+                totalCost += item.price * item.quantity;
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('cart-item');
+                itemDiv.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <h3>${item.name}</h3>
+                    <p><strong>Price:</strong> $${item.price.toFixed(2)}</p>
+                    <p><strong>Quantity:</strong> ${item.quantity}</p>
+                `;
+                cartItemsDiv.appendChild(itemDiv);
+            });
+            
+
+            // Display the total cost
+            document.getElementById("total").innerText = "$" + totalCost.toFixed(2);
+        } catch (error) {
+            console.error("An error occurred:", error);
+        }
     </script>
 </body>
 </html>
