@@ -1,6 +1,6 @@
 /* --- Base Styles --- */
 body {
-    background-color: #F5F5F5;
+    background-color: #ffffff;
     margin: 0;
     font-family: 'Inter', sans-serif;
     padding-top: 80px; /* Increased top padding to accommodate the fixed header */
@@ -12,7 +12,7 @@ a {
 }
 
 i {
-    color: #525252;
+    color: #ffffff;
     font-size: 20px;
 }
 
@@ -195,7 +195,6 @@ header .user-cart-icons a:hover {
 
 /* --- Product Details Page Styles --- */
 .product-details {
-    display: flex;
     justify-content: space-between;
     margin: 20px 0;
     padding: 20px;
@@ -203,14 +202,28 @@ header .user-cart-icons a:hover {
     border-radius: 4px;
 }
 
-.product-details img {
-    max-width: 50%;
-    height: auto;
-    margin-right: 20px;
+.product-card {
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
 }
 
-.product-details h2, .product-details p {
-    margin: 10px 0;
+.product-card img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    font-weight: bold;
+}
+
+.product-card a {
+    color: #3196E7;
 }
 
 .product-details button {
@@ -228,7 +241,7 @@ header .user-cart-icons a:hover {
 }
 
 .product-details img {
-    max-width: 10%;
+    max-width: 50%;
     height: auto;
     display: block;
     margin: 0 auto; /* centers the image horizontally */
@@ -238,7 +251,7 @@ header .user-cart-icons a:hover {
     padding: 15px;
     border: 1px solid #e0e0e0;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex; 
+    display:flex; 
     align-items: center; 
     margin-bottom: 15px; 
 }
@@ -289,4 +302,18 @@ header .user-cart-icons a:hover {
 .myClass {
     color: red;
     background-color: #f5f5f5;
+}
+
+
+/* Button Styles */
+.add-to-cart-btn {
+    /* Your button styling here */
+    background-color: #3196E7;
+    color: #ffffff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
 }
