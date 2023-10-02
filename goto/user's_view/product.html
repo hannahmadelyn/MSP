@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!-- ... (other head elements) ... -->
-    <link rel="stylesheet" type="text/css" href="../css/">
-    <title>GOTO Store - Product Details</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;700&family=Roboto:wght@300;400;500;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../css/store_style.css">
+        <title>Home - GOTO Store</title>
+    </head>
+    
 
 <body>
+    <header>
+        <form>
+            <input type="text" placeholder="Search for products">
+            <button type="submit" class="search-btn">
+                <i class="fas fa-search"></i>
+            </button>
+            <div class="user-cart-icons">
+                <a href="#"><i class="fas fa-user"></i> Account</a>
+                <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+        </form>
+    </header>
+
+    </nav>
     <main>
         <section class="product-details">
             <img id="productImage" src="" alt="Product Image">
@@ -18,7 +38,7 @@
     </main>
 
     <!-- Linking the JS files -->
-    <script src="USER_addItem.js"></script>
+    <script src="../js/USER_addItem.js"></script>
     <script>
         const products = {
             "001": { name: "Product 1", description: "Description for product 1", price: "59.99", image: "/goto/img/banana.png" },

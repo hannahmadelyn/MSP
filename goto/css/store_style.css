@@ -233,3 +233,56 @@ header .user-cart-icons a:hover {
     display: block;
     margin: 0 auto; /* centers the image horizontally */
 }
+.cart-item {
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 15px; 
+}
+
+.cart-item img {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.cart-item h3 {
+    flex-grow: 2;
+}
+
+.totalCost {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.cartOptions {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.cartOptions button {
+    background-color: #3196E7;
+    color: #FFF;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cartOptions button:hover {
+    background-color: #277db2;
+}
