@@ -1,0 +1,17 @@
+Please follow the below (and add rules as we go) for consistent programming:
+
+
+
+- Comment code accurately, if another team member looks at your work they should be able to understand it reasonably easily. 
+
+
+
+- Naming conventions: 
+
+      Varibale: dateAdded 
+
+      Table names: all caps: ITEMS 
+
+      Functions: btnSubmit  (e.g NOT submitButton) - list action first
+
+
