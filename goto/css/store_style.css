@@ -251,9 +251,10 @@ header .user-cart-icons a:hover {
     padding: 15px;
     border: 1px solid #e0e0e0;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    display:flex; 
-    align-items: center; 
-    margin-bottom: 15px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
 }
 
 .cart-item img {
@@ -262,8 +263,28 @@ header .user-cart-icons a:hover {
     margin-right: 20px;
 }
 
+.cart-item-info { /* Added this to contain product info */
+    display: flex;
+    align-items: center;
+    gap: 10px;  /* Space between child elements */
+}
+
 .cart-item h3 {
-    flex-grow: 2;
+    margin: 0;
+}
+
+.cart-item button {
+    background-color: #3196E7;
+    color: #FFF;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cart-item button:hover {
+    background-color: #277db2;
 }
 
 .totalCost {
@@ -299,11 +320,12 @@ header .user-cart-icons a:hover {
 .cartOptions button:hover {
     background-color: #277db2;
 }
+
+
 .myClass {
     color: red;
     background-color: #f5f5f5;
 }
-
 
 /* Button Styles */
 .add-to-cart-btn {
@@ -316,4 +338,171 @@ header .user-cart-icons a:hover {
     cursor: pointer;
     transition: background-color 0.3s;
 
+}
+
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;   /* Setting the default font */
+    background-color: #f4f4f4;         /* Setting a light gray background color for the entire page */
+    padding: 40px;                     /* Adding padding around the body content */
+}
+
+/* Styling for the form */
+form {
+    background-color: #ffffff;         /* White background color for the form */
+    padding: 30px;                     /* Padding inside the form */
+    border-radius: 5px;                /* Rounded corners for the form */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);   /* Adding a subtle shadow to the form */
+    max-width: 800px;                  /* Setting a maximum width for the form */
+    margin: 0 auto;                    /* Centering the form on the page */
+}
+
+/* Styling for the main heading inside the form */
+h1 {
+    text-align: center;               /* Center-aligning the heading */
+    margin-bottom: 30px;              /* Space below the heading */
+    color: #333;                      /* Dark gray color for the heading text */
+}
+
+/* Styling for each fieldset (group of form fields) */
+fieldset {
+    border: 1px solid #e0e0e0;        /* Light gray border around the fieldset */
+    padding: 20px;                    /* Padding inside the fieldset */
+    border-radius: 5px;               /* Rounded corners for the fieldset */
+    margin-bottom: 20px;              /* Space below each fieldset */
+}
+
+/* Styling for the legend (title) of each fieldset */
+legend {
+    font-weight: bold;                /* Bold text for the legend */
+    color: #666;                      /* Dark gray color for the legend text */
+    padding: 5px 10px;                /* Padding around the legend text */
+    border: 1px solid #e0e0e0;        /* Light gray border around the legend */
+    border-radius: 5px;               /* Rounded corners for the legend */
+}
+
+/* Styling for labels */
+label {
+    display: block;                   /* Displaying labels as block elements */
+    margin-bottom: 10px;              /* Space below each label */
+    font-weight: 600;                 /* Slightly bold text for labels */
+}
+
+/* Styling for various input fields */
+input[type="text"], 
+input[type="email"], 
+input[type="date"], 
+input[type="month"], 
+select {
+    width: 100%;                      /* Full width for these input fields */
+    padding: 10px;                    /* Padding inside the input fields */
+    margin-bottom: 20px;              /* Space below each input field */
+    border: 1px solid #e0e0e0;        /* Light gray border for the input fields */
+    border-radius: 5px;               /* Rounded corners for the input fields */
+    font-size: 16px;                  /* Font size for text inside the input fields */
+}
+
+/* Styling for the submit button */
+input[type="submit"] {
+    display: block;                   /* Displaying the button as a block element */
+    background-color: #3097D1;        /* Blue background color for the button */
+    color: #fff;                      /* White text color for the button */
+    padding: 15px 20px;               /* Padding inside the button */
+    border: none;                     /* Removing the default border from the button */
+    border-radius: 5px;               /* Rounded corners for the button */
+    cursor: pointer;                  /* Hand cursor when hovering over the button */
+    font-size: 16px;                  /* Font size for the button text */
+    margin-top: 20px;                 /* Space above the button */
+    width: 100%;                      /* Full width for the button */
+}
+
+/* Hover effect for the submit button */
+input[type="submit"]:hover {
+    background-color: #267ab7;        /* Darker blue color when hovering over the button */
+}
+
+.checkout-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3196E7;
+    color: #FFF;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none; /* Removes the underline from the link */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.checkout-link:hover {
+    background-color: #277db2;
+}
+
+/* Header styling */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+body {
+    padding-top: 60px; /* Adjust this based on your header's height */
+}
+
+.brand-logo {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #333;
+    text-decoration: none;
+}
+
+.user-cart-icons a {
+    margin-left: 10px;
+    margin-right: 50px;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Checkout link styling */
+.checkout-link {
+    background-color: #3196E7;
+    color: #FFF;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.checkout-link:hover {
+    background-color: #277db2;
+}
+
+.loader {
+    border: 10px solid #f3f3f3;
+    border-top: 10px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.text {
+    margin-top: 20px;
+    font-weight: bold;
 }

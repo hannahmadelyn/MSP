@@ -10,8 +10,6 @@
     <link rel="stylesheet" type="text/css" href="../css/store_style.css">
     <title>Shopping Cart - GOTO Store</title>
 </head>
-
-
 <body>
     <main>
         <h1>Shopping Cart</h1>
@@ -22,7 +20,7 @@
         </div>
         <div class="cartOptions">
             <div id="checkOutButton">
-                <button type="button" id="checkOut">Check Out</button>
+                <a href="./CheckOut.html" class="checkout-link">Check Out</a>
             </div>
             <div id="clearCartButton">
                 <button type="button" id="clearCart">Clear Cart</button>
@@ -33,26 +31,17 @@
     <script>
         let totalCost = 0;
 
-        try {
-
-            document.getElementById('clearCart').addEventListener('click', function() {
-                // Clear cart from localStorage
-                localStorage.removeItem('cart');
-                
-                // Update UI
-                document.querySelector('.cartItems').innerHTML = "<p>Your cart is empty. Add items to view them here.</p>";
-                document.getElementById('total').innerText = "$0.00";
-            });
-            
+        function refreshCart() {
             const cartItemsDiv = document.querySelector('.cartItems');
             const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            cartItemsDiv.innerHTML = ''; // Reset cart items
 
             // If cart is empty, display a message
             if (cart.length === 0) {
                 cartItemsDiv.innerHTML = "<p>Your cart is empty. Add items to view them here.</p>";
             }
 
-            cart.forEach(item => {
+            cart.forEach((item, index) => {
                 totalCost += item.price * item.quantity;
                 const itemDiv = document.createElement('div');
                 itemDiv.classList.add('cart-item');
@@ -60,17 +49,39 @@
                     <img src="${item.image}" alt="${item.name}">
                     <h3>${item.name}</h3>
                     <p><strong>Price:</strong> $${item.price.toFixed(2)}</p>
-                    <p><strong>Quantity:</strong> ${item.quantity}</p>
+                    <select>
+                        <option value="1" ${item.quantity === 1 ? 'selected' : ''}>1</option>
+                        <option value="2" ${item.quantity === 2 ? 'selected' : ''}>2</option>
+                        <option value="3" ${item.quantity === 3 ? 'selected' : ''}>3</option>
+                        <option value="4" ${item.quantity === 4 ? 'selected' : ''}>4</option>
+                        <option value="5" ${item.quantity === 5 ? 'selected' : ''}>5</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                    <button onclick="deleteItem(${index})">Delete</button>
                 `;
                 cartItemsDiv.appendChild(itemDiv);
             });
-            
 
             // Display the total cost
             document.getElementById("total").innerText = "$" + totalCost.toFixed(2);
-        } catch (error) {
-            console.error("An error occurred:", error);
         }
+
+        function deleteItem(index) {
+            let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            cart.splice(index, 1); // Remove item from cart array
+            localStorage.setItem('cart', JSON.stringify(cart)); // Update local storage
+            refreshCart(); // Refresh cart display
+        }
+
+        document.getElementById('clearCart').addEventListener('click', function() {
+            // Clear cart from localStorage
+            localStorage.removeItem('cart');
+            
+            // Update UI
+            refreshCart();
+        });
+        
+        refreshCart(); // Load cart items on page load
     </script>
 </body>
 </html>
