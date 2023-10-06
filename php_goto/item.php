@@ -1,3 +1,18 @@
+<!-- Added for visual effects by Mahita, remove later *** -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;700&family=Roboto:wght@300;400;500;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="js/script.js"></script>
+	<title>GOTO Dashboard</title>
+</head>
+
 <?php 
 // set the page title
 $pageTitle = "Item";
@@ -87,6 +102,87 @@ include "includes/head.php";
 						</tr>
 					</tbody>
 				</table>
+			</section>
+			<section> <!-- dynamic table -->
+			<?php 
+
+// connecting to database
+require_once ("settings.php"); // connection info
+
+$conn = @mysqli_connect($host, 
+		$user, 
+		$pwd, 
+		$sql_db);
+
+// the table dealt with for this file		
+$sql_table = "ITEM";
+
+// checks if connection is successful
+	if (!$conn) {
+		// displays an error message
+		echo "<p>Database connection failure</p>";
+	} 
+	
+	else {		
+		// display only query
+		$query = "SELECT * FROM $sql_table";
+		
+		$result = mysqli_query($conn, $query);
+		
+		if (!$result) {
+			echo "<p class=\"wrong\">Something is wrong with", $query, "</p>";
+		} 
+		else {
+			// check if any rows were returned 
+			if (mysqli_num_rows($result) == 0) {
+				echo "<p>No such records found</p>";
+				//echo "<p>The query used was $query</p>";
+			} 
+			else 
+			{
+				
+				echo "<div class=\"table-container\">";
+				echo "<table class=\"result-table\" border=\"1\">\n";
+		
+				echo "<tr>\n"				
+					."<th scope=\"col\">itemID</th>\n"
+					."<th scope=\"col\">name</th>\n"
+					."<th scope=\"col\">description</th>\n"
+					."<th scope=\"col\">brand</th>\n"
+					."<th scope=\"col\">category</th>\n"
+					."<th scope=\"col\">price</th>\n"
+					."<th scope=\"col\">quantity</th>\n"
+					."<th scope=\"col\">dateAdded</th>\n"
+					."<th scope=\"col\">dateExpiry</th>\n"
+					."<th scope=\"col\">weight</th>\n"
+					."</tr>\n";
+					
+			
+					// retrieve current record pointed by the result pointer 
+					while ($row = mysqli_fetch_assoc($result)) {					
+						echo "<tr>\n";
+						echo "<td>", $row["itemID"],"</td>\n";
+						echo "<td>", $row["name"],"</td>\n";
+						echo "<td>", $row["description"],"</td>\n";
+						echo "<td>", $row["brand"],"</td>\n";
+						echo "<td>", $row["category"],"</td>\n";
+						echo "<td>", $row["price"],"</td>\n";
+						echo "<td>", $row["quantity"],"</td>\n";
+						echo "<td>", $row["dateAdded"],"</td>\n";
+						echo "<td>", $row["dateExpiry"],"</td>\n";
+						echo "<td>", $row["weight"],"</td>\n";
+						echo "</tr>\n";
+				}
+				
+				echo "</table>\n";
+				
+				echo "</div>";
+			}
+		} 
+	}
+	
+?>
+
 			</section>
 		</main>
 	</div>
