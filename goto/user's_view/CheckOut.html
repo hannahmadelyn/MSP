@@ -20,11 +20,15 @@
         <a href="./store.html"><i class="fas fa-user"></i> Account</a>
     </div>
 </header>
-<!-- End Header -->
 
     <main>
-
-        <form id="checkoutForm" method="post" action="https://yourwebsite.com/process_checkout.php">
+        <div class="cart-overview">
+            <h2>Your Items:</h2>
+            <ul class="checkout-cart-items"></ul>
+        </div>
+        
+       
+        <form id="checkoutForm" method="post" action="../process_checkout.php">
             <fieldset>
                 <h1 id="checkoutH1">Checkout</h1><br />
 
@@ -92,11 +96,26 @@
 
                 <div id="checkOutButton">
                     <a href="./Cart.html" class="checkout-link">Back</a>
-                    <a href="./Cart.html" class="checkout-link">Complete </a>
+                    <button type="submit" class="checkout-link">Complete</button>
 
                 </div>
                 <br />                
         </form>
     </main>
+    <script>
+        const checkoutCartItemsList = document.querySelector('.checkout-cart-items');
+const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+cart.forEach(item => {
+    const itemLi = document.createElement('div');
+    itemLi.classList.add('checkout-cart-item');
+    itemLi.innerHTML = `
+        ${item.name} - $${item.price.toFixed(2)} (Qty: ${item.quantity})
+    `;
+    checkoutCartItemsList.appendChild(itemLi);
+});
+
+    </script>
+    
 </body>
 </html>
