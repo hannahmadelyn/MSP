@@ -18,7 +18,7 @@ include "includes/head.php";
 		<main>
 			<h1>Item Dashboard</h1>
 			<section>
-				<form action="#" method="post" class="form_item">
+				<form action="itemAddBk.php" " method="post" class="form_item">
 					<!-- Name -->
 					<h1>Add item</h1>
 					<div>
