@@ -1,6 +1,11 @@
 Please follow the below (and add rules as we go) for consistent programming:
 
 
+- Connecting to database:
+VPN or swinburne network
+php myadmin login
+apache mysql mercury on xampp
+localhost htdocs in xampp
 
 - Comment code accurately, if another team member looks at your work they should be able to understand it reasonably easily. 
 
