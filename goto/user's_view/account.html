@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,20 +6,49 @@
     <link rel="stylesheet" type="text/css" href="../css/store_style.css">
     <title>Create Account - GOTO Store</title>
 </head>
-<body>
+<body class="account">
     <!-- Shared Header -->
     <main>
-        <div class="account-form">
+        <div class="account-option">
+            <h2>Welcome to GOTO Store</h2>
+            <p>Already a member?</p>
+            <button onclick="showLogin()">Login</button>
+            <p>Or</p>
+            <button onclick="showSignup()">Sign Up</button>
+        </div>
+
+        <div class="account-form" id="loginForm" style="display: none;">
+            <h2>Login</h2>
+            <form action="../account_creation.php" method="post">
+                <input type="email" name="email" placeholder="Email Address">
+                <input type="password" name="password" placeholder="Password">
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <div class="account-form" id="signupForm" style="display: none;">
             <h2>Create an Account</h2>
-            <form>
-                <input type="text" placeholder="Full Name">
-                <input type="email" placeholder="Email Address">
-                <input type="password" placeholder="Password">
-                <input type="password" placeholder="Confirm Password">
+            <form action="../account_creation.php" method="post">
+                <input type="text" name="fullname" placeholder="Full Name">
+                <input type="email" name="email" placeholder="Email Address">
+                <input type="password" name="password" placeholder="Password">
+                <input type="password" name="confirm_password" placeholder="Confirm Password">
                 <button type="submit">Sign Up</button>
             </form>
         </div>
     </main>
+
+    <script>
+        function showLogin() {
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('signupForm').style.display = 'none';
+        }
+
+        function showSignup() {
+            document.getElementById('signupForm').style.display = 'block';
+            document.getElementById('loginForm').style.display = 'none';
+        }
+    </script>
     <!-- Optionally include a footer -->
 </body>
 </html>
