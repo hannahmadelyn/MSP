@@ -41,13 +41,34 @@
     <script src="../js/USER_addItem.js"></script>
     <script>
         const products = {
-            "001": { name: "Product 1", description: "Description for product 1", price: "59.99", image: "/goto/img/banana.png" },
-            "002": { name: "Product 2", description: "Description for product 2", price: "12.99", image: "/goto/img/cantaloupe.png" },
-            "003": { name: "Product 3", description: "Description for product 3", price: "8.99", image: "/goto/img/orange.png" },
-            "004": { name: "Product 4", description: "Description for product 4", price: "9.99", image: "/goto/img/pear.png" }
-
+            "001": { 
+                name: "Organic Banana", 
+                description: "Fresh organic bananas packed with essential nutrients. Perfect for a quick snack or smoothies.", 
+                price: "59.99", 
+                image: "/goto/img/banana.png" 
+            },
+            "002": { 
+                name: "Cantaloupe Melon", 
+                description: "Juicy and sweet cantaloupe melons sourced from the best farms. Refreshing and rich in vitamins.", 
+                price: "12.99", 
+                image: "/goto/img/cantaloupe.png" 
+            },
+            "003": { 
+                name: "Organic Orange", 
+                description: "Organic oranges bursting with natural sweetness and vitamin C. Ideal for fresh orange juice or a fruity snack.", 
+                price: "8.99", 
+                image: "/goto/img/orange.png" 
+            },
+            "004": { 
+                name: "Ripe Pear", 
+                description: "Deliciously sweet pears that are soft to bite and perfect for desserts or eating raw.", 
+                price: "9.99", 
+                image: "/goto/img/pear.png" 
+            }
+        
             // ... add other products as required
         };
+        
 
         const urlParams = new URLSearchParams(window.location.search);
         const productID = urlParams.get('productID');

@@ -11,7 +11,7 @@
     <title>Shopping Cart - GOTO Store</title>
 </head>
 <body>
-    <main>
+    <main class="cart">
         <h1>Shopping Cart</h1>
         <div class="cartItems"></div>
         <div class="totalCost">
@@ -20,10 +20,10 @@
         </div>
         <div class="cartOptions">
             <div id="checkOutButton">
-                <a href="./CheckOut.html" class="checkout-link">Check Out</a>
+                <a href="./CheckOut.html" class="btn">Check Out</a>
             </div>
             <div id="clearCartButton">
-                <button type="button" id="clearCart">Clear Cart</button>
+                <button type="button" id="clearCart" >Clear Cart</button>
             </div>
         </div>
     </main>
@@ -32,6 +32,7 @@
         let totalCost = 0;
 
         function refreshCart() {
+            totalCost = 0; // <-- Reset the totalCost here
             const cartItemsDiv = document.querySelector('.cartItems');
             const cart = JSON.parse(localStorage.getItem('cart') || '[]');
             cartItemsDiv.innerHTML = ''; // Reset cart items
@@ -49,7 +50,7 @@
                     <img src="${item.image}" alt="${item.name}">
                     <h3>${item.name}</h3>
                     <p><strong>Price:</strong> $${item.price.toFixed(2)}</p>
-                    <select>
+                    <select id="quantity-${index}">
                         <option value="1" ${item.quantity === 1 ? 'selected' : ''}>1</option>
                         <option value="2" ${item.quantity === 2 ? 'selected' : ''}>2</option>
                         <option value="3" ${item.quantity === 3 ? 'selected' : ''}>3</option>
@@ -60,7 +61,15 @@
                     <button onclick="deleteItem(${index})">Delete</button>
                 `;
                 cartItemsDiv.appendChild(itemDiv);
+            
+                // Add an event listener to the select element to handle quantity changes
+                document.getElementById(`quantity-${index}`).addEventListener('change', function() {
+                    cart[index].quantity = parseInt(this.value);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    refreshCart();
+                });
             });
+            
 
             // Display the total cost
             document.getElementById("total").innerText = "$" + totalCost.toFixed(2);

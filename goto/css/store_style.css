@@ -1,9 +1,10 @@
 /* --- Base Styles --- */
 body {
     background-color: #ffffff;
+    color: #747474; /* Set the default text color */
     margin: 0;
     font-family: 'Inter', sans-serif;
-    padding-top: 80px; /* Increased top padding to accommodate the fixed header */
+    padding-top: 80px; /* Account for the fixed header */
 }
 
 a {
@@ -12,88 +13,125 @@ a {
 }
 
 i {
-    color: #ffffff;
+    color: #3196E7;
     font-size: 20px;
 }
 
-/* Adjusted Header */
+/* --- Header Styles --- */
 header {
-    display: flex;
-    justify-content: center;  /* Center the content horizontally */
-    align-items: center;
-    padding: 15px 20px;
-    background-color: #fff;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-}
-
-/* Adjusted Header Form */
-header form {
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    flex-grow: 2;
-    width: 90%;  /* Make the form cover the entire width */
-    border: 1px solid #ccc;
-    background-color: #f4f4f4;  /* Background color for the entire form */
-    overflow: hidden;  /* Ensures inner elements don't spill out */
-    border-radius: 4px;  /* Optional: Rounded corners for the search box */
-    margin-right: 40px;  /* Center the form horizontally */
+    
 }
 
-
-header input[type="text"] {
-    flex: 1;
-    border: none;
-    padding: 12px 15px; /* Adjusted padding for balanced spacing */
-    font-size: 1em;
-    outline: none;
-    margin: 10px;
-}
-
-header form i.fas.fa-search {
-    padding: 10px;
-    cursor: pointer;
-    background-color: #f4f4f4; /* Added background for contrast */
+.brand-logo {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #3196E7;
+    text-decoration: none;
 }
 
 .user-cart-icons {
     display: flex;
     gap: 15px;
     align-items: center;
-    margin: 20px 10px;  /* Adjusted the right margin to 10px */
 }
 
+.user-cart-icons a {
+    margin-left: 10px;
+    margin-right: 50px;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- Search Form in Header --- */
+header form {
+    display: flex;
+    align-items: center;
+    flex-grow: 2;
+    border: 1px solid #ccc;
+    background-color: #ffffff; /* Set the form's background color to white */
+    overflow: hidden;
+    border-radius: 1px;
+    margin-right: 10px;
+    max-width: 70%; /* restricts the maximum width */
+    width: 100%;
+    height: 5px; /* set a fixed height for the form */
+}
+
+header input[type="text"] {
+    height: 100%; /* make it fill the height of the parent form */
+    margin: 0; /* remove the margin */
+    flex: 1;
+    border: none;
+    padding: 12px 15px;
+    font-size: 1em;
+    outline: none;
+}
+
+.search-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+header form i.fas.fa-search {
+    padding: 10px;
+    cursor: pointer;
+
+}
+
+nav {
+    background-color: #f8f8f8;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: 20px;
+}
 
 /* --- Quick Links --- */
 .quick-links {
     display: flex;
     justify-content: center;
-    gap: 20px; /* Increased gap for spacing */
-    background-color: #f4f4f4;
-    padding: 15px 0; /* Increased padding for balance */
-    margin-top: 20px; /* Space between header and quick links */
+    gap: 20px;
+   
+    padding: 15px 0;
+    margin-top: 20px;
 }
 
 .quick-links li {
-    list-style: none;
+    display: inline;
+}
+
+.quick-links a {
+    text-decoration: none;
+    color: #747474;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.quick-links a:hover {
+    background-color: #e0e0e0;
 }
 
 /* --- Banner Styles --- */
 .banner {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-}
-
-.banner img {
-    max-width: 100%;
     height: auto;
+    margin: 20px 0;
+    background-image: url(../img/sale.png);
+    background-repeat: repeat-x;
+    background-size: auto;
 }
 
 /* --- Product Grid --- */
@@ -102,16 +140,20 @@ header form i.fas.fa-search {
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-    margin: 20px 0; /* Space between banner and product grid */
+    margin: 20px 0;
 }
 
 .product-card {
     background-color: #fff;
     padding: 15px;
     border: 1px solid #e0e0e0;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 5px rgba(153, 49, 49, 0.1);
     text-align: center;
     transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: scale(1.03);
 }
 
 .product-card img {
@@ -129,69 +171,14 @@ header form i.fas.fa-search {
     color: #3196E7;
 }
 
-/* --- Account Creation Styles --- */
-.account-form {
-    background-color: #FFF;
-    max-width: 400px;
-    margin: 40px auto;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.account-form h2 {
+/* --- Footer Styles --- */
+footer {
     text-align: center;
-    margin-bottom: 20px;
+    padding: 20px 0;
+    background-color: #ffffff;
+    margin-top: 20px;
 }
 
-.account-form input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.account-form button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #3196E7;
-    color: #FFF;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.account-form button:hover {
-    background-color: #277db2;
-}
-
-/* --- Shared Header Styles --- */
-header .logo a {
-    font-size: 24px;
-    font-weight: bold;
-    color: #3196E7;
-    margin-right: 20px;
-}
-
-header .user-cart-icons {
-    display: flex;
-    gap: 15px;
-}
-
-header .user-cart-icons a {
-    color: #525252;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    transition: color 0.3s;
-}
-
-header .user-cart-icons a:hover {
-    color: #3196E7;
-}
 
 /* --- Product Details Page Styles --- */
 .product-details {
@@ -246,80 +233,7 @@ header .user-cart-icons a:hover {
     display: block;
     margin: 0 auto; /* centers the image horizontally */
 }
-.cart-item {
-    background-color: #fff;
-    padding: 15px;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 15px;
-}
 
-.cart-item img {
-    width: 50px;
-    height: 50px;
-    margin-right: 20px;
-}
-
-.cart-item-info { /* Added this to contain product info */
-    display: flex;
-    align-items: center;
-    gap: 10px;  /* Space between child elements */
-}
-
-.cart-item h3 {
-    margin: 0;
-}
-
-.cart-item button {
-    background-color: #3196E7;
-    color: #FFF;
-    border: none;
-    border-radius: 4px;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.cart-item button:hover {
-    background-color: #277db2;
-}
-
-.totalCost {
-    display: flex;
-    justify-content: space-between;
-    background-color: #fff;
-    padding: 15px;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-}
-
-.cartOptions {
-    display: flex;
-    justify-content: space-between;
-    background-color: #fff;
-    padding: 15px;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-}
-
-.cartOptions button {
-    background-color: #3196E7;
-    color: #FFF;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.cartOptions button:hover {
-    background-color: #277db2;
-}
 
 
 .myClass {
@@ -340,12 +254,7 @@ header .user-cart-icons a:hover {
 
 }
 
-/* General Styling */
-body {
-    font-family: 'Arial', sans-serif;   /* Setting the default font */
-    background-color: #f4f4f4;         /* Setting a light gray background color for the entire page */
-    padding: 40px;                     /* Adding padding around the body content */
-}
+
 
 /* Styling for the form */
 form {
@@ -421,40 +330,8 @@ input[type="submit"]:hover {
     background-color: #267ab7;        /* Darker blue color when hovering over the button */
 }
 
-.checkout-link {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #3196E7;
-    color: #FFF;
-    border: none;
-    border-radius: 4px;
-    text-decoration: none; /* Removes the underline from the link */
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
 
-.checkout-link:hover {
-    background-color: #277db2;
-}
 
-/* Header styling */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    padding: 10px 20px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-body {
-    padding-top: 60px; /* Adjust this based on your header's height */
-}
 
 .brand-logo {
     font-weight: bold;
@@ -506,27 +383,102 @@ body {
     margin-top: 20px;
     font-weight: bold;
 }
-.cart-overview {
-    padding-top: 20px;
-    border: 1px solid #e0e0e0;
+
+.cart {
+    max-width: 800px; /* Restricting the width of the main content */
+    margin: 20px auto; /* Adding vertical margin and centering the content horizontally */
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+.cartItems {
+    margin-bottom: 20px; /* Space between cart items and total cost */
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between cart item elements */
     padding: 10px;
-    width: 300px; /* Or any desired width */
-    margin-bottom: 20px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 10px; /* Space between each cart item */
 }
 
-.checkout-cart-items {
-    list-style-type:lower-alpha;
-    padding: 0;
+.cart-item img {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
 }
 
-.checkout-cart-item {
-    padding: 5px 0;
-    border-bottom: 1px solid #e0e0e0;
-    font-weight: bold;
-    font-size: 14px; /* Smaller font size for compact view */
+.cart-item-info {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between child elements */
 }
 
-.checkout-cart-item:last-child {
-    border-bottom: none;
+.cart-item h3 {
+    margin: 0;
+}
+
+.cart-item button {
+    font-size: 14px; /* Adjust this value to your preference */
+    display: inline-block;
+    background-color: #3196E7;
+    color: #FFF;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    text-decoration: none; /* Removes the underline from the link */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cart-item button:hover {
+    background-color: #277db2;
+}
+
+.totalCost, .cartOptions {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.cartOptions button {
+    background-color: #3196E7;
+    color: #FFF;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cartOptions button:hover {
+    background-color: #277db2;
+}
+.cart-item select {
+    width: 500px; /* Adjust this value as needed */
+}
+.cartOptions .btn {
+    font-size: 14px; /* Adjust this value to your preference */
+    display: inline-block;
+    background-color: #3196E7;
+    color: #FFF;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    text-decoration: none; /* Removes the underline from the link */
+    cursor: pointer;
+    transition: background-color 0.3s;;
+}
+
+.cartOptions .btn:hover {
+    background-color: #277db2;
 }
