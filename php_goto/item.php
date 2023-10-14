@@ -1,18 +1,3 @@
-<!-- Added for visual effects by Mahita, remove later *** -->
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;700&family=Roboto:wght@300;400;500;900&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script src="js/script.js"></script>
-	<title>GOTO Dashboard</title>
-</head>
-
 <?php 
 // set the page title
 $pageTitle = "Item";
@@ -142,8 +127,10 @@ $sql_table = "ITEM";
 			{
 				
 				echo "<div class=\"table-container\">";
-				echo "<table class=\"result-table\" border=\"1\">\n";
-		
+				//echo "<table class=\"result-table\" border=\"1\">\n";
+				//echo "<table class=\"result-table\" style='border-collapse: collapse; width: 100%;'>\n";
+				echo "<table class=\"result-table\" style='border-collapse: collapse; width: 100%; text-align: center;'>\n";
+
 				echo "<tr>\n"				
 					."<th scope=\"col\">itemID</th>\n"
 					."<th scope=\"col\">name</th>\n"
@@ -155,9 +142,10 @@ $sql_table = "ITEM";
 					."<th scope=\"col\">dateAdded</th>\n"
 					."<th scope=\"col\">dateExpiry</th>\n"
 					."<th scope=\"col\">weight</th>\n"
+					."<th scope=\"col\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>\n"
+					."<th scope=\"col\">&nbsp;&nbsp;&nbsp;&nbsp;</th>\n"
 					."</tr>\n";
 					
-			
 					// retrieve current record pointed by the result pointer 
 					while ($row = mysqli_fetch_assoc($result)) {					
 						echo "<tr>\n";
@@ -171,9 +159,11 @@ $sql_table = "ITEM";
 						echo "<td>", $row["dateAdded"],"</td>\n";
 						echo "<td>", $row["dateExpiry"],"</td>\n";
 						echo "<td>", $row["weight"],"</td>\n";
+						echo "<td><a href='itemEdit.php?itemID=" . $row["itemID"] . "'>Edit</a></td>\n";
+						echo "<td><a href='itemDelete.php?itemID=" . $row["itemID"] . "'><i class='fas fa-times'></i></a></td>\n";
+
 						echo "</tr>\n";
 				}
-				
 				echo "</table>\n";
 				
 				echo "</div>";
