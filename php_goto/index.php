@@ -17,20 +17,6 @@ include "includes/head.php";
 		</aside>
 		<main>
 			<h1>User Dashboard</h1>
-			<section class="card">
-				<article>
-					<h2>new users</h2>
-					<p>300</p>
-				</article>
-				<article>
-					<h2>total users</h2>
-					<p>1,200</p>
-				</article>
-				<article>
-					<h2>weekly increased</h2>
-					<p>60%</p>
-				</article>
-			</section>
 			<section>
 				<div class="btn_group">
 					<div>
@@ -48,24 +34,45 @@ include "includes/head.php";
 				<table>
 					<thead>
 						<tr>
+							<td>Member id</td>
 							<td>Name</td>
-							<td>Email</td>
-							<td colspan="2">Phone</td>
+							<td>Join Date</td>
+							<td>phone</td>
+							<td colspan="3">address</td>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>User Name</td>
-							<td>Email</td>
-							<td>Phone</td>
-							<td><a href="#">Edit</a></td>
-						</tr>
-						<tr>
-							<td>User Name</td>
-							<td>Email</td>
-							<td>Phone</td>
-							<td><a href="#">Edit</a></td>
-						</tr>
+					<?php
+	// connect to the database
+	include "includes/connect.php";
+
+try {
+    // First SQL Query
+    $sql1 = "SELECT * FROM MEMBER";
+
+    // Execute the first SQL statement and store the output
+    $resultSet1 = $pdo->query($sql1);
+
+    $showTotal = 0; // Initialize the variable before using it
+
+    // Extract data from the result set row by row
+    foreach($resultSet1 as $row) {
+         echo "<tr>";
+        echo "<td>" . $row['memberID'] . "</td>";
+        echo "<td>" . $row['firstName'] . " " .$row['lastName'] . "</td>";
+        echo "<td>" . $row['joinDate'] . "</td>";
+        echo "<td>" . $row['phone'] . "</td>";
+        echo "<td>" . $row['address'] . "</td>";
+         echo "<td><a href='userEdit.php?memberID=" . $row['memberID'] . "'>Edit</a></td>"; // Edit button
+            echo "<td><a class ='del' href='UserDel.php?memberID=" . $row['memberID'] . "'>Delete</a></td>"; // Delete button
+        echo "</tr>";
+    }
+
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+    exit();
+}
+?>
 					</tbody>
 				</table>
 			</section>

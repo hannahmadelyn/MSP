@@ -80,6 +80,7 @@ header form i.fas.fa-search {
     transform: scale(1.05); /* Slightly larger on hover */
 }
 
+
 body {
   background-color: #F5F5F5;
     margin: 0;
@@ -198,6 +199,10 @@ tbody td a{
   color: #18A0FB;
   text-transform: uppercase;
   font-weight: bold;
+}
+
+tbody td a.del{
+  color: #FF0000;
 }
 
 /*---------------------------------item------------------------*/

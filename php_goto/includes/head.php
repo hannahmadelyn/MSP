@@ -18,7 +18,7 @@
 	<!-- link to JS -->
 	<script src="js/script.js"></script>
 	 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<script src="js/itemAdd.js"></script>
+	<!--<script src="js/itemAdd.js"></script>-->
 	<script src="js/User_additem.js"></script>
 
 	<title>GOTO Dashboard :: <?php echo $pageTitle; ?></title>
