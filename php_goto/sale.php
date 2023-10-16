@@ -21,50 +21,158 @@ include "includes/head.php";
 		<?php
 	// connect to the database
 	include "includes/connect.php";
-	
-	// write a sql statement to get data from the tbl_product table
-	try {
-		//create our SQL statment
-		$sql = "SELECT s.orderDate, COUNT(*) as totalOrders
-		FROM SALES s
-		JOIN SALEDETAILS sd ON s.transactionID = sd.transactionID
-		GROUP BY s.orderDate;";
-		
-		//excute the SQL statment and store the output
-		$resultSet = $pdo->query($sql);						
-	}//end of try block
-	
-	// what to do if sql statement fails
-	catch(PDOException $e){
-		// create an error message with excepiton details
-		echo "Error fetching products:".$e->getMessage();
-		
-		// stop script from contiuning
-		exit();						
-	}//end of catch block	
 
-	// extract data from the result set row by row
-	foreach($resultSet as $row){
-		// store row data in variables
-		$orderDate = $row['orderDate'];
-		$totalOrders = $row['totalOrders'];	}
-	?>
-		<article>
-			<h2>new Sale</h2>
-			<p><?echo $totalOrders;?></p>
-		</article>
-		<article>
+try {
+    // First SQL Query
+    $sql1 = "SELECT s.orderDate, COUNT(*) as totalOrders
+             FROM SALES s
+             JOIN SALEDETAILS sd ON s.transactionID = sd.transactionID
+             GROUP BY s.orderDate";
+
+    // Execute the first SQL statement and store the output
+    $resultSet1 = $pdo->query($sql1);
+
+    $showTotal = 0; // Initialize the variable before using it
+
+    // Extract data from the result set row by row
+    foreach($resultSet1 as $row) {
+        $totalOrders = $row['totalOrders'];
+        $showTotal += $totalOrders; // Increment the $showTotal by $totalOrders
+    }
+
+    echo "<article>
+             <h2>Total Orders</h2>
+             <p>$showTotal</p>
+          </article>";
+
+	$showTotalSales = 0;
+    // Second SQL Query
+    $sql2 = "SELECT sd.transactionID, SUM(i.price * sd.quantity) as totalPrice
+             FROM SALEDETAILS sd
+             JOIN ITEM i ON sd.itemID = i.itemID
+             GROUP BY sd.transactionID";
+
+    // Execute the second SQL statement and store the output
+    $resultSet2 = $pdo->query($sql2);
+
+    foreach($resultSet2 as $row) {
+    	$showTotalSales +=$row["totalPrice"];;
+    }
+    echo "<article>
 			<h2>total Sale</h2>
-			<p>1,200</p>
-		</article>
-		<article>
-			<h2>weekly incrased</h2>
-			<p>60%</p>
-		</article>
+			<p>$$showTotalSales</p>
+		</article>";
+
+
+    // Second SQL Query
+    $sql3 = "SELECT s.orderDate, COUNT(*) as totalOrders
+         FROM SALES s
+         JOIN SALEDETAILS sd ON s.transactionID = sd.transactionID
+         WHERE s.orderDate = CURDATE()  -- This line is added to filter records by today's date
+         GROUP BY s.orderDate";
+
+    // Execute the second SQL statement and store the output
+    $resultSet3 = $pdo->query($sql3);
+    $showNewOrders = 0;
+
+   
+// Check if we have any records for today
+if ($resultSet3->rowCount() > 0) {
+    // Extract data from the result set row by row
+    foreach($resultSet3 as $row) {
+        $totalOrders = $row['totalOrders'];
+        $showTotal += $totalOrders; // Increment the $showTotal by $totalOrders
+    }
+
+    echo "<article>
+             <h2>Today's Orders</h2>
+             <p>$showNewOrders</p>
+          </article>";
+} 
+
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+    exit();
+}
+?>
 	</section>
 	<section>
 		<h2>Statistic</h2>
-		<canvas id="myChart" width="400" height="400"></canvas>
+
+<!-- Create a canvas element where the chart will be rendered -->
+<canvas id="salesChart" width="400" height="200"></canvas>
+
+<script>
+// Prepare the datasets
+let dates = [];
+let sales = [];
+let backgroundColors = [];
+let borderColors = [];
+
+function getRandomColor() {
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+<?php
+// connect to the database
+include "includes/connect.php";
+
+// SQL Query
+$sql = "SELECT s.orderDate, SUM(i.price * sd.quantity) as dailyTotalSales
+        FROM SALES s
+        JOIN SALEDETAILS sd ON s.transactionID = sd.transactionID
+        JOIN ITEM i ON sd.itemID = i.itemID
+        GROUP BY s.orderDate
+        ORDER BY s.orderDate ASC";
+
+// Execute SQL and handle exceptions
+try {
+    $resultSet = $pdo->query($sql);
+    foreach ($resultSet as $row) {
+        $orderDate = date("j/n/Y", strtotime($row['orderDate']));
+        $dailyTotalSales = $row['dailyTotalSales'];
+        // Output data as JavaScript code
+        echo "dates.push('$orderDate');";
+        echo "sales.push($dailyTotalSales);";
+         // Here we generate a random color for each bar
+    echo "backgroundColors.push(getRandomColor());";
+    echo "borderColors.push(getRandomColor());";
+    }
+} catch (PDOException $e) {
+    echo "Error fetching daily total sales: " . $e->getMessage();
+    exit();
+}
+?>
+
+// Render the chart
+let ctx = document.getElementById('salesChart').getContext('2d');
+let salesChart = new Chart(ctx, {
+    type: 'bar',  // Specify the chart type
+    data: {
+        labels: dates,  // X-axis labels
+        datasets: [{
+            label: 'Daily Total Sales',
+            data: sales,  // Data for the Y-axis
+              backgroundColor: backgroundColors,
+            borderColor: borderColors, 
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+
+
 	</section>
 </main>
 	</div>
