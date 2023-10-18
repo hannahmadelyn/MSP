@@ -19,7 +19,12 @@ function toggleSubmenu(menuId) {
         menu.style.display = 'none';
     }
 }
-
+function applyFilters() {
+    let categoryValue = document.getElementById("categoryDropdown").value;
+    let sortValue = document.getElementById("sortDropdown").value;
+    let currentUrl = window.location.href.split('?')[0]; // Get the current URL without parameters
+    window.location.href = currentUrl + "?category=" + categoryValue + "&sortBy=" + sortValue;
+}
 //statistic
 document.addEventListener('DOMContentLoaded', function() {
     var ctx = document.getElementById('myChart').getContext('2d');
